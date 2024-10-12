@@ -1,0 +1,20 @@
+trigger:
+  - main
+
+pool:
+  name: 'MyAgentPool'
+  vmImage: 'windows-latest'
+
+steps:
+  - task: DotNetCoreCLI@2
+    inputs:
+      command: 'build'
+      projects: '**/*.csproj'
+
+  - task: DotNetCoreCLI@2
+    inputs:
+      command: 'run'
+      projects: '**/*.csproj'
+      arguments: '--configuration Release'
+
+  
