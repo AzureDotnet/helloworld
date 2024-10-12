@@ -8,12 +8,12 @@ pool:
 steps:
   - task: DotNetCoreCLI@2
     inputs:
-      command: 'restore'
+      command: 'build'
       projects: '**/*.csproj'
 
   - task: DotNetCoreCLI@2
     inputs:
-      command: 'build'
+      command: 'run'
       projects: '**/*.csproj'
       arguments: '--configuration Release'
 
